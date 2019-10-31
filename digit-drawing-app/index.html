@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+  <html xmlns="http://www.w3.org/1999/xhtml"> 
+  
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <link rel="stylesheet" type="text/css" href="css/styles.css" /> 
+  <script type="text/javascript" src="js/canvas.js"></script> 
+  <script type="text/javascript" src="js/clearButton.js"></script> 
+  <script type="text/javascript" src="js/recognize.js"></script> 
+  <title>Digit Recognition Application</title> 
+</head> 
+
+<body> 
+  <div id="wrapper"> 
+
+  	<div id="headline">
+  		<p>Digit Recognition Application</p>
+  	</div>
+  
+    <div id="blackboardPlaceholder"> 
+
+	  <canvas id="drawingCanvas" height="280" width="280"> 
+	    <p>Something went wrong...</p>
+	  </canvas> 
+
+    </div> 
+
+    <div id="buttonContainer">
+      <button onclick="clearCanvas()" id="clearButton">Clear</button>
+      <button onclick="recognize()" id="recognizeButton">Recognize</button>
+    </div>
+  
+  </div> 
+  
+</body> 
+</html>
