@@ -23,7 +23,7 @@ if(window.addEventListener) {
       container.appendChild(canvas); 
       context = canvas.getContext('2d'); 
       context.strokeStyle = "#4ecaf4";//painting color 
-      context.lineWidth = 10.0; 
+      context.lineWidth = 15.0; 
   
       context.fillStyle = "#ffffff"; //canvas color
       context.fillRect(0,0,280,280);
@@ -50,7 +50,6 @@ if(window.addEventListener) {
 
    function img_update () { 
       contexto.drawImage(canvas, 0, 0); 
-      context.clearRect(0, 0, canvas.width, canvas.height); 
    } 
 
    var tools = {}; 
@@ -83,8 +82,4 @@ if(window.addEventListener) {
  init();
 
  }, false); 
-}
-
-function testAufruf() {
-   alert("TEST");
 }
