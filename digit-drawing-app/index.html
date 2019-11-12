@@ -4,10 +4,6 @@
 <head> 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
   <link rel="stylesheet" type="text/css" href="css/styles.css" /> 
-  <script type="text/javascript" src="js/canvas.js"></script> 
-  <script type="text/javascript" src="js/clearButton.js"></script> 
-  <script type="text/javascript" src="js/recognize.js"></script> 
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
   <title>Digit Recognition Application</title> 
 </head> 
 
@@ -17,14 +13,14 @@
   	<div id="headline">
   		<p>Digit Recognition Application</p>
   	</div>
-  
+
     <div id="blackboardPlaceholder"> 
+      <canvas id="drawingCanvas" height="280" width="280"> 
+        <p>Something went wrong...</p>
+      </canvas>
 
-	  <canvas id="drawingCanvas" height="280" width="280"> 
-	    <p>Something went wrong...</p>
-	  </canvas> 
-
-    </div> 
+      <div id="chartArea"></div>
+    </div>
 
     <div id="buttonContainer">
       <button onclick="clearCanvas()" id="clearButton">Clear</button>
@@ -32,6 +28,13 @@
     </div>
   
   </div> 
+
+  <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart-all.js"></script>
+  <script type="text/javascript" src="js/canvas.js"></script> 
+  <script type="text/javascript" src="js/clearButton.js"></script> 
+  <script type="text/javascript" src="js/recognize.js"></script> 
+  <script type="text/javascript" src="js/barChart.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
 
 </body> 
 </html>

@@ -1,26 +1,30 @@
+var predictedArray = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10];
+
 document.querySelector('#recognizeButton').addEventListener('click', recognize);
 
   async function recognize() {
 
   	const model = await tf.loadLayersModel('http://localhost:3000/js/model.json');
 
-	var imageData = context.getImageData(0,0,280,280);
-	var newCanvas = document.createElement('canvas');
-	newCanvas.width = imageData.width;
-	newCanvas.height = imageData.height;
+  	var imageData = context.getImageData(0,0,280,280);
+  	var newCanvas = document.createElement('canvas');
+  	newCanvas.width = imageData.width;
+  	newCanvas.height = imageData.height;
 
-	newCanvas.getContext("2d").putImageData(imageData, 0, 0);
+  	newCanvas.getContext("2d").putImageData(imageData, 0, 0);
 
-	context.scale(0.1, 0.1);
-	context.drawImage(newCanvas, 0, 0);
-	context.scale(10, 10);
+  	context.scale(0.1, 0.1);
+  	context.drawImage(newCanvas, 0, 0);
+  	context.scale(10, 10);
 
-	var newImageData = context.getImageData(0,0,28,28);
-	context.fillRect(0,0,28,28);
+  	var newImageData = context.getImageData(0,0,28,28);
+  	context.fillRect(0,0,28,28);
 
-	var preparedData = prepareForPrediction(newImageData);
+  	var preparedData = prepareForPrediction(newImageData);
 
-	doPrediction(model, preparedData);
+  	doPrediction(model, preparedData);
+
+    barChart.setData(rawData);
 
   }
 
@@ -75,7 +79,9 @@ document.querySelector('#recognizeButton').addEventListener('click', recognize);
  function doPrediction(model, preparedData) {
  	const x = tf.tensor1d(preparedData);
  	const data = x.reshape([1, 28, 28, 1]);
- 	const prediction = model.predict(data);
- 	prediction.print();
+ 	prediction = model.predict(data);
+  for(var i=0; i<rawData.series[0].data.length; i++) {
+    rawData.series[0].data[i] = prediction.arraySync()[0][i] * 100;
+  }
 
  }
